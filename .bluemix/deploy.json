@@ -26,10 +26,34 @@
             "description": "The bluemix space",
             "type": "string"
         },
+	    "ji-region": {
+            "description": "The bluemix region",
+            "type": "string"
+        },
+        "ji-organization": {
+            "description": "The bluemix org",
+            "type": "string"
+        },
+        "ji-space": {
+            "description": "The bluemix space",
+            "type": "string"
+        },
+	"test-cs-region":{
+            "description": "The bluemix region",
+            "type": "string"
+		    
+	},
+
+        "registry-namespace": {
+            "description": "The bluemix namespace",
+            "type": "string"
+        },
+        "registry-cluster-name":{
+            "description": "The bluemix cluster name",
+            "type":"string"
+        },
         "api-key": {
-            "description": {
-                "$ref": "#/messages/deploy.apiKeyDescription"
-            },
+            "description": "API key description",
             "type": "string"
         },
         "prod-app-name": {
@@ -44,7 +68,13 @@
         "prod-region",
         "prod-organization",
         "prod-space",
+	"ji-region",
+	"ji-organization",
+	"ji-space",
+	"test-cs-region",
         "prod-app-name",
+        "registry-namespace",
+        "registry-cluster-name",
         "api-key"
     ],
     "form": [
@@ -63,52 +93,28 @@
         {
 	        "type": "password",
 	        "readonly": false,
-	        "title": {
-                   "$ref": "#/messages/deploy.apiKeyTitle"
-                },
+	        "title": "IBM Cloud API Key",
 	        "key": "api-key"
         },
+       
+	       {
+            "type": "select",
+       
+            "title": "cs region",
+            "key": "test-cs-region"
+        },
+	
         {
-            "type": "table",
-            "columnCount": 3,
-            "widths": [
-                "33%",
-                "33%",
-                "33%"
-            ],
-            "items": [
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/region"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/organization"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/space"
-                    }
-                },
-                {
-                    "type": "select",
-                    "key": "prod-region"
-                },
-                {
-                    "type": "select",
-                    "key": "prod-organization"
-                },
-                {
-                    "type": "select",
-                    "key": "prod-space",
-                    "readonly": false
-                }
-            ]
+            "type": "select",
+            "readonly": false,
+            "title": "name space",
+            "key": "registry-namespace"
+        },
+        {
+            "type": "select",
+            "readonly": false,
+            "title": "cluster name",
+            "key": "registry-cluster-name"
         }
     ]
 }
