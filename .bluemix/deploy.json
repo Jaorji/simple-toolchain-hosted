@@ -138,7 +138,7 @@
                     "type": "select",
                     "key": "prod-region",
 		    "$populate":{
-			    "name":"getCFRegion"
+			    "name":"getCFRegions"
 		    }
                 },
                 {
@@ -154,7 +154,7 @@
                     "key": "prod-space",
                     "readonly": false,
 		    "$populate":{
-			    "name":"getCFSpace"
+			    "name":"getCFSpace",
 			    "params":{"region":"prod-region","organization":"prod-organization"}
 		    }
                 },
@@ -190,7 +190,7 @@
                     "type": "select",
                     "key": "ji-region",
 		     "$populate":{
-			    "name":"getCFRegion"
+			    "name":"getCFRegions"
 		    }
                 },
                 {
