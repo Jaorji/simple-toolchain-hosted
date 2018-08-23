@@ -38,20 +38,6 @@
             "description": "The bluemix space",
             "type": "string"
         },
-	"test-cs-region":{
-            "description": "The bluemix region",
-            "type": "string"
-		    
-	},
-
-        "registry-namespace": {
-            "description": "The bluemix namespace",
-            "type": "string"
-        },
-        "registry-cluster-name":{
-            "description": "The bluemix cluster name",
-            "type":"string"
-        },
         "api-key": {
             "description": "API key description",
             "type": "string"
@@ -71,10 +57,7 @@
 	"ji-region",
 	"ji-organization",
 	"ji-space",
-	"test-cs-region",
         "prod-app-name",
-        "registry-namespace",
-        "registry-cluster-name",
         "api-key"
     ],
     "form": [
