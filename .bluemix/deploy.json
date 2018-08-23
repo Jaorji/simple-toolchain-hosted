@@ -136,16 +136,27 @@
                 },
                 {
                     "type": "select",
-                    "key": "prod-region"
+                    "key": "prod-region",
+		    "$populate":{
+			    "name":"getCFRegion"
+		    }
                 },
                 {
                     "type": "select",
-                    "key": "prod-organization"
+                    "key": "prod-organization",
+		    "$populate":{
+			    "name":"getCFOrganization",
+			    "params":{"region":"prod-region"}
+		    }
                 },
                 {
                     "type": "select",
                     "key": "prod-space",
-                    "readonly": false
+                    "readonly": false,
+		    "$populate":{
+			    "name":"getCFSpace"
+			    "params":{"region":"prod-region","organization":"prod-organization"}
+		    }
                 },
 		     {
                     "type": "label",
@@ -177,16 +188,27 @@
                 },
                 {
                     "type": "select",
-                    "key": "ji-region"
+                    "key": "ji-region",
+		     "$populate":{
+			    "name":"getCFRegion"
+		    }
                 },
                 {
                     "type": "select",
-                    "key": "ji-organization"
+                    "key": "ji-organization",
+		    "$populate":{
+			    "name":"getCFOrganization",
+			    "params":{"region":"ji-region"}
+		    }
                 },
                 {
                     "type": "select",
                     "key": "ji-space",
-                    "readonly": false
+                    "readonly": false,
+		    "$populate":{
+			    "name":"getCFSpace",
+			    "params":{"organization":"ji-organization","region":"ji-region"}
+		    }
                 }
             ]
         }
