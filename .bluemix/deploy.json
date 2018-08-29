@@ -121,14 +121,14 @@
                     "type": "select",
                     "key": "prod-region",
 		    "$populate":{
-			    "name":"getCFRegions"
+			    "method":"populateCFRegions"
 		    }
                 },
                 {
                     "type": "select",
                     "key": "prod-organization",
 		    "$populate":{
-			    "name":"getCFOrganization",
+			    "method":"populateCFOrganizations",
 			    "params":{"region":"prod-region"}
 		    }
                 },
@@ -137,7 +137,7 @@
                     "key": "prod-space",
                     "readonly": false,
 		    "$populate":{
-			    "name":"getCFSpace",
+			    "method":"populateCFSpaces",
 			    "params":{"region":"prod-region","organization":"prod-organization"}
 		    }
                 },
@@ -173,14 +173,14 @@
                     "type": "select",
                     "key": "ji-region",
 		     "$populate":{
-			    "name":"getCFRegions"
+			    "method":"populateCFRegions"
 		    }
                 },
                 {
                     "type": "select",
                     "key": "ji-organization",
 		    "$populate":{
-			    "name":"getCFOrganization",
+			    "method":"populateCFOrganizations",
 			    "params":{"region":"ji-region"}
 		    }
                 },
@@ -189,7 +189,7 @@
                     "key": "ji-space",
                     "readonly": false,
 		    "$populate":{
-			    "name":"getCFSpace",
+			    "method":"populateCFSpaces",
 			    "params":{"organization":"ji-organization","region":"ji-region"}
 		    }
                 }
