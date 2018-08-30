@@ -80,6 +80,12 @@
 	        "key": "api-key"
         },
         {
+	        "type": "password",
+	        "readonly": false,
+	        "title": "IBM Cloud API Key",
+	        "key": "api-key"
+        },
+        {
             "type": "table",
             "columnCount": 4,
             "widths": [
