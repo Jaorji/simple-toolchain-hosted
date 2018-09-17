@@ -16,29 +16,57 @@
     "properties": {
         "prod-region": {
             "description": "The bluemix region",
-            "type": "string"
-        },
+            "type": "string",
+	    "$validate":{
+		   "method":"validateCFRegion",
+		    "params":{"apiKey":"api-key"}
+	    }
+	},
         "prod-organization": {
             "description": "The bluemix org",
-            "type": "string"
+            "type": "string",
+	    "$validate":{
+		   "method":"validateCFSpace",
+		   "params":{"region":"prod-region","apiKey":"api-key"}
+	    }
         },
         "prod-space": {
             "description": "The bluemix space",
-            "type": "string"
+            "type": "string",
+	    "$validate":{
+		   "method":"validateCFSpace",
+		   "params":{"region":"prod-region","organization":"prod-organization","apiKey":"api-key"}
+	    }
         },
 	    "ji-region": {
             "description": "The bluemix region",
-            "type": "string"
+            "type": "string",
+            "$validate":{
+		   "method":"validateCFRegion",
+		    "params":{"apiKey":"self-api-key"}
+	    }
         },
         "ji-organization": {
             "description": "The bluemix org",
-            "type": "string"
+            "type": "string",
+	    "$validate":{
+		   "method":"validateCFOrganization",
+		   "params":{"region":"ji-region","apiKey":"self-api-key"}
+	    }
         },
         "ji-space": {
             "description": "The bluemix space",
-            "type": "string"
+            "type": "string",
+	    "$validate":{
+		   "method":"validateCFSpace",
+		   "params":{"region":"ji-region","organization":"ji-organization","apiKey":"self-api-key"}
+	    }
         },
         "api-key": {
+            "description": "API key description",
+            "type": "string"
+        },
+	 "self-api-key": {
             "description": "API key description",
             "type": "string"
         },
@@ -58,7 +86,8 @@
 	"ji-organization",
 	"ji-space",
         "prod-app-name",
-        "api-key"
+        "api-key",
+	"self-api-key"
     ],
     "form": [
         {
@@ -79,14 +108,8 @@
 	        "title": "IBM Cloud API Key",
 	        "key": "api-key"
         },
-        {
-	        "type": "password",
-	        "readonly": false,
-	        "title": "IBM Cloud API Key",
-	        "key": "api-key"
-        },
-        {
-            "type": "table",
+	{
+	    "type": "table",
             "columnCount": 4,
             "widths": [
                 "15%",
@@ -94,8 +117,8 @@
                 "28%",
 		"28%"
             ],
-            "items": [
-                {
+	    "items": [
+	       {
                     "type": "label",
                     "title": ""
                 },
@@ -127,7 +150,8 @@
                     "type": "select",
                     "key": "prod-region",
 		    "$populate":{
-			    "method":"populateCFRegions"
+			    "method":"populateCFRegions",
+			    "params":{"apiKey":"api-key"}
 		    }
                 },
                 {
@@ -135,7 +159,7 @@
                     "key": "prod-organization",
 		    "$populate":{
 			    "method":"populateCFOrganizations",
-			    "params":{"region":"prod-region"}
+			    "params":{"region":"prod-region","apiKey":"api-key"}
 		    }
                 },
                 {
@@ -144,9 +168,29 @@
                     "readonly": false,
 		    "$populate":{
 			    "method":"populateCFSpaces",
-			    "params":{"region":"prod-region","organization":"prod-organization"}
+			    "params":{"region":"prod-region","organization":"prod-organization","apiKey":"api-key"}
 		    }
-                },
+                }	    
+		    
+	    ]
+	},
+        {
+	        "type": "password",
+	        "readonly": false,
+	        "title": "IBM Cloud API Key",
+	        "key": "self-api-key"
+        },
+        {
+            "type": "table",
+            "columnCount": 4,
+            "widths": [
+                "15%",
+                "28%",
+                "28%",
+		"28%"
+            ],
+            "items": [
+              
 		     {
                     "type": "label",
                     "title": ""
@@ -179,7 +223,8 @@
                     "type": "select",
                     "key": "ji-region",
 		     "$populate":{
-			    "method":"populateCFRegions"
+			    "method":"populateCFRegions",
+			    "params":{"apiKey":"self-api-key"}
 		    }
                 },
                 {
@@ -187,7 +232,7 @@
                     "key": "ji-organization",
 		    "$populate":{
 			    "method":"populateCFOrganizations",
-			    "params":{"region":"ji-region"}
+			    "params":{"region":"ji-region","apiKey":"self-api-key"}
 		    }
                 },
                 {
@@ -196,7 +241,7 @@
                     "readonly": false,
 		    "$populate":{
 			    "method":"populateCFSpaces",
-			    "params":{"organization":"ji-organization","region":"ji-region"}
+			    "params":{"organization":"ji-organization","region":"ji-region","apiKey":"self-api-key"}
 		    }
                 }
             ]
