@@ -83,8 +83,6 @@
         "prod-organization",
         "prod-space",
 	"ji-region",
-	"ji-organization",
-	"ji-space",
         "prod-app-name",
         "api-key",
 	"self-api-key"
@@ -225,8 +223,7 @@
 		     "$populate":{
 			    "method":"populateCFRegions",
 			    "params":{"apiKey":"self-api-key"}
-		    }
-                }
+		     }
                 }
             ]
         }
