@@ -226,23 +226,7 @@
 			    "method":"populateCFRegions",
 			    "params":{"apiKey":"self-api-key"}
 		    }
-                },
-                {
-                    "type": "select",
-                    "key": "ji-organization",
-		    "$populate":{
-			    "method":"populateCFOrganizations",
-			    "params":{"region":"ji-region","apiKey":"self-api-key"}
-		    }
-                },
-                {
-                    "type": "select",
-                    "key": "ji-space",
-                    "readonly": false,
-		    "$populate":{
-			    "method":"populateCFSpaces",
-			    "params":{"organization":"ji-organization","region":"ji-region","apiKey":"self-api-key"}
-		    }
+                }
                 }
             ]
         }
