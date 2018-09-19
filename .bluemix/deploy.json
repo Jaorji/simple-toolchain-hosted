@@ -64,7 +64,7 @@
             "$populate": {
                 "method": "populateCFRegions",
                 "params": {
-                    "apiKey": "zzz-api-kee"
+                    "apiKey": "zzz-api-key"
                 }
             }
         },
