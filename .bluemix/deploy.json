@@ -101,7 +101,7 @@
             "key": "prod-app-name"
         },
         {
-	        "type": "password",
+	        "type": "ibm-cloud-api-key",
 	        "readonly": false,
 	        "title": "IBM Cloud API Key",
 	        "key": "api-key"
@@ -218,7 +218,7 @@
                     }
                 },
                 {
-                    "type": "select",
+                    "type": "ibm-cloud-api-key",
                     "key": "ji-region",
 		     "$populate":{
 			    "method":"populateCFRegions",
