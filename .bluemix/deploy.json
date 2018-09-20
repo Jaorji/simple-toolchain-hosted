@@ -147,26 +147,32 @@
                 {
                     "type": "select",
                     "key": "prod-region",
-		    "$populate":{
+		    "options" : {
+		         "$populate":{
 			    "method":"populateCFRegions",
 			    "params":{"apiKey":"api-key"}
+		         }
 		    }
                 },
                 {
                     "type": "select",
                     "key": "prod-organization",
-		    "$populate":{
+	            "options":{
+		         "$populate":{
 			    "method":"populateCFOrganizations",
 			    "params":{"region":"prod-region","apiKey":"api-key"}
+		         }
 		    }
                 },
                 {
                     "type": "select",
                     "key": "prod-space",
                     "readonly": false,
-		    "$populate":{
+		    "options": {
+		         "$populate":{
 			    "method":"populateCFSpaces",
 			    "params":{"region":"prod-region","organization":"prod-organization","apiKey":"api-key"}
+		         }
 		    }
                 }	    
 		    
