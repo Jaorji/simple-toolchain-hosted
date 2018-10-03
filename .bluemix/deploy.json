@@ -64,11 +64,19 @@
         },
         "api-key": {
             "description": "API key description",
-            "type": "string"
+            "type": "string",
+	    "$validate":{
+		   "method":"validateApiKey",
+		    "params":{"apiKey":"api-key"}
+	    }
         },
 	 "self-api-key": {
             "description": "API key description",
-            "type": "string"
+            "type": "string",
+	    "$validate":{
+		"method":"validateApiKey",
+		"params":{"apiKey":"self-api-key"}
+	    }
         },
         "prod-app-name": {
             "description": {
