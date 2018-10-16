@@ -187,7 +187,7 @@
 	    ]
 	},
         {
-	        "type": "jgifo",
+	        "type": "password",
 	        "readonly": false,
 	        "title": "IBM Cloud API Key",
 	        "key": "self-api-key"
