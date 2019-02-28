@@ -90,10 +90,8 @@
         "prod-region",
         "prod-organization",
         "prod-space",
-	"ji-region",
         "prod-app-name",
-        "api-key",
-	"self-api-key"
+        "api-key"
     ],
     "form": [
         {
