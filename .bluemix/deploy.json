@@ -169,7 +169,18 @@
 			    "params":{"region":"prod-region","apiKey":"api-key"}
 		         }
 		    }
-                }	    
+                },
+		                    {
+                    "type": "select",
+                    "key": "prod-space",
+                    "readonly": false,
+		    "options": {
+		         "$populate":{
+			    "method":"populateCFSpaces",
+			    "params":{"region":"prod-region","organization":"prod-organization","apiKey":"api-key"}
+		         }
+		    }
+                }
 		    
 	    ]
 	}
