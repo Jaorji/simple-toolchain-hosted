@@ -33,7 +33,6 @@ services:
   sample-build:
     service_id: pipeline
     parameters:
-      defaultBaseImageVersion: '2.0'
       services:
         - sample-repo
       name: '{{services.sample-repo.parameters.repo_name}}'
