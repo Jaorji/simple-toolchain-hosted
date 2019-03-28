@@ -1,5 +1,9 @@
 ---
 defaultBaseImageVersion: 2.0
+properties:
+- type: TEXT
+  text: Prod_value
+  value: true
 stages:
 - name: BUILD
   inputs:
