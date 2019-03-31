@@ -2,7 +2,10 @@
 defaultBaseImageVersion: 2.0
 properties:
 - type: TEXT
-  text: Prod_value
+  name: Prod_value
+  value: true
+- type: TEXT
+  name: Prod_seesion
   value: true
 stages:
 - name: BUILD
