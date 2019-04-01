@@ -16,6 +16,7 @@ stages:
   triggers:
   - type: commit
     event: pull_request
+    action: push
   jobs:
   - name: Build
     type: builder
