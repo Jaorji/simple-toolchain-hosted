@@ -35,7 +35,7 @@ stages:
   jobs:
   - name: Rolling Deploy
     type: deployer
-    curatedDockerImage: 2.0
+    curatedDockerImage: default
     target:
       region_id: ${PROD_REGION_ID}
       organization: ${PROD_ORG_NAME}
