@@ -17,6 +17,9 @@ stages:
   - type: commit
     event: pull_request
     action: push
+  - type: commit
+    event: pull_request
+    action: merge
   jobs:
   - name: Build
     type: builder
