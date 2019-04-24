@@ -24,6 +24,7 @@ stages:
   - name: APP_URL
     value: undefined
     type: text
+  triggers:
   jobs:
   - name: Rolling Deploy
     type: deployer
