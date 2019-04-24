@@ -1,33 +1,40 @@
 ---
 defaultBaseImageVersion: latest
 properties:
-- type: TEXT
-  name: Prod_value
-  value: true
-- type: TEXT
-  name: Prod_seesion
-  value: true
+- name: Prod_value
+  value: 'true'
+  type: text
+- name: Prod_seesion
+  value: 'true'
+  type: text
 stages:
 - name: BUILD
   inputs:
-  - type: git
+  - url: https://us-east.git.cloud.ibm.com/Xiaocong.Ji/simple-toolchain-20190424171946424.git
+    type: git
     branch: master
-    service: ${SAMPLE_REPO}
+    dir_name: null
   triggers:
   - type: commit
     event: pull_request
-    action: push
+    action: pull_request
   - type: commit
     event: pull_request
-    action: merge
+    action: pull_request
+  permission:
+    execute: TOOLCHAIN_ADMINS
   jobs:
   - name: Build
     type: builder
+    artifact_dir: ''
 - name: DEPLOY
   inputs:
   - type: job
     stage: BUILD
     job: Build
+    dir_name: null
+  permission:
+    execute: TOOLCHAIN_ADMINS
   properties:
   - name: CF_APP_NAME
     value: undefined
@@ -39,37 +46,24 @@ stages:
   - name: Rolling Deploy
     type: deployer
     curatedDockerImage: default
+    deploy_type: cf
     target:
-      region_id: ${PROD_REGION_ID}
-      organization: ${PROD_ORG_NAME}
-      space: ${PROD_SPACE_NAME}
-      application: ${CF_APP_NAME}
-      api_key: ${API_KEY}
-    script: |
-      #!/bin/bash
-      # Push app
-      if ! cf app $CF_APP; then  
-        cf push $CF_APP
-      else
-        OLD_CF_APP=${CF_APP}-OLD-$(date +"%s")
-        rollback() {
-          set +e  
-          if cf app $OLD_CF_APP; then
-            cf logs $CF_APP --recent
-            cf delete $CF_APP -f
-            cf rename $OLD_CF_APP $CF_APP
-          fi
-          exit 1
-        }
-        set -e
-        trap rollback ERR
-        cf rename $CF_APP $OLD_CF_APP
-        cf push $CF_APP
-        cf delete $OLD_CF_APP -f
-      fi
-      # Export app name and URL for use in later Pipeline jobs
-      export CF_APP_NAME="$CF_APP"
-      export APP_URL=http://$(cf app $CF_APP_NAME | grep -e urls: -e routes: | awk '{print $2}')
-      # View logs
-      #cf logs "${CF_APP}" --recent
-      
+      region_id: ibm:yp:us-east
+      organization: Xiaocong.Ji@ibm.com
+      space: dev
+      application: simple-toolchain-20190424171946424
+      api_key: 9Sq38psHbqjpCXYuqqL/AK39f+Y88m3u1UagZ3pROPUzRBt6GFB5j1qejElRQf8YQivgI3QCx+70jKTkn0K4zQ==
+    script: "#!/bin/bash\n# Push app\nif ! cf app $CF_APP; then  \n  cf push $CF_APP\n\
+      else\n  OLD_CF_APP=${CF_APP}-OLD-$(date +\"%s\")\n  rollback() {\n    set +e\
+      \  \n    if cf app $OLD_CF_APP; then\n      cf logs $CF_APP --recent\n     \
+      \ cf delete $CF_APP -f\n      cf rename $OLD_CF_APP $CF_APP\n    fi\n    exit\
+      \ 1\n  }\n  set -e\n  trap rollback ERR\n  cf rename $CF_APP $OLD_CF_APP\n \
+      \ cf push $CF_APP\n  cf delete $OLD_CF_APP -f\nfi\n# Export app name and URL\
+      \ for use in later Pipeline jobs\nexport CF_APP_NAME=\"$CF_APP\"\nexport APP_URL=http://$(cf\
+      \ app $CF_APP_NAME | grep -e urls: -e routes: | awk '{print $2}')\n# View logs\n\
+      #cf logs \"${CF_APP}\" --recent\n"
+hooks:
+- enabled: true
+  label: null
+  ssl_enabled: false
+  url: http://lms-api/v1/messaging/webhook/publish
