@@ -7,7 +7,7 @@ stages:
     service: ${SAMPLE_REPO}
   triggers:
   - type: commit
-  - event: pull_request/push
+    event: pull_request/push
   jobs:
   - name: Build
     type: builder
