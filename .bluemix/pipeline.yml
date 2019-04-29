@@ -17,6 +17,9 @@ stages:
   - type: job
     stage: BUILD
     job: Build
+  triggers:
+  - type: stage
+    enabled: false
   properties:
   - name: CF_APP_NAME
     value: undefined
@@ -27,9 +30,6 @@ stages:
   jobs:
   - name: Rolling Deploy
     type: deployer
-    triggers:
-  - type: stage
-    enabled: false
     target:
       region_id: ${PROD_REGION_ID}
       organization: ${PROD_ORG_NAME}
