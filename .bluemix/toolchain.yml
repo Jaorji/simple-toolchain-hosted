@@ -48,12 +48,8 @@ services:
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'
         execute: true
-  private_worker:
-    service_id: private_worker
-    parameters:
-       name:
-       workerAuthentication:
-    
+  sample-private_worker:
+    service_id: private_worker    
   webide:
     service_id: orion
 form:
