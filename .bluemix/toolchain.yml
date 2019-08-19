@@ -48,9 +48,7 @@ services:
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'
-        execute: true
-  sample-private-worker:
-    service_id: private_worker    
+        execute: true  
   webide:
     service_id: orion
 form:
