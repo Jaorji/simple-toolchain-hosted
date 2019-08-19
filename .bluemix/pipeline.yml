@@ -12,7 +12,7 @@ stages:
   - name: Build
     type: builder
     build_type: customimage
-    dockerImage: cypress/base:latest 
+    docker_image: cypress/base:latest 
     script: |
       #!/bin/bash
       # Reinstall for binary that was not captured with build output ... can you cache?
