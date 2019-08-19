@@ -14,10 +14,10 @@ stages:
     build_type: customimage
     dockerImage: cypress/base:latest 
        script: |
-      #!/bin/bash
-      # Reinstall for binary that was not captured with build output ... can you cache?
-      npm install cypress
-      npm run test:ci
+        #!/bin/bash
+        # Reinstall for binary that was not captured with build output ... can you cache?
+        npm install cypress
+        npm run test:ci
 - name: DEPLOY
   inputs:
   - type: job
