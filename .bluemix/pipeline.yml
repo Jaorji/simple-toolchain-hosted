@@ -1,6 +1,7 @@
 ---
 stages:
 - name: BUILD
+  build_type: cr
   image_name: cypress/base:latest 
   inputs:
   - type: git
