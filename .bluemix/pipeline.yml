@@ -10,7 +10,8 @@ stages:
     events: push pull_request pull_request_closed
   jobs:
   - name: Build
-    type: customimage
+    type: builder
+    build_type: customimage
     dockerImage: cypress/base:latest 
 - name: DEPLOY
   inputs:
