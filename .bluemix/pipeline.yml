@@ -11,7 +11,7 @@ stages:
   jobs:
   - name: Build
     type: builder
-    image_name：cypress/base:latest 
+    image_name: cypress/base:latest 
 - name: DEPLOY
   inputs:
   - type: job
