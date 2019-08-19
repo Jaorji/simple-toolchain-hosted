@@ -1,6 +1,7 @@
 ---
 stages:
 - name: BUILD
+  image_name: cypress/base:latest 
   inputs:
   - type: git
     branch: master
@@ -11,7 +12,6 @@ stages:
   jobs:
   - name: Build
     type: builder
-    image_name: cypress/base:latest 
 - name: DEPLOY
   inputs:
   - type: job
