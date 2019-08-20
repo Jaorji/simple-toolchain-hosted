@@ -11,8 +11,18 @@ stages:
   jobs:
   - name: Build
     type: builder
+- name: ACCEPTANCE
+  inputs:
+  - type: job
+    stage: BUILD
+    job: Build 
+  triggers:
+  - type: stage
+  jobs:
+  - name: Acceptance Test
+    type: builder
     build_type: customimage
-    docker_image: cypress/base:latest 
+    docker_image: cypress/base:latest
     script: |
       #!/bin/bash
       # Reinstall for binary that was not captured with build output ... can you cache?
