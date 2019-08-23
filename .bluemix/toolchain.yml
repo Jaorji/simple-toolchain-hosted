@@ -28,9 +28,9 @@ services:
     parameters:
       repo_name: '{{toolchain.name}}'
       repo_url: 'https://github.com/open-toolchain/node-hello-world'
-      type: clone
+      type: existing
       has_issues: false
-      enable_traceability: true
+      enable_traceability: false
   sample-build:
     service_id: pipeline
     parameters:
