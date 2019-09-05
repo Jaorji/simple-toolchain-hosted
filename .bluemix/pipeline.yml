@@ -1,4 +1,5 @@
 ---
+private_worker: workerPipelineprivate
 stages:
 - name: BUILD
   inputs:
@@ -7,7 +8,7 @@ stages:
     service: ${SAMPLE_REPO}
   triggers:
   - type: git
-    events: push pull_request pull_request_closed
+    events: push pull_request pull_request_closed 
   jobs:
   - name: Build
     type: builder
