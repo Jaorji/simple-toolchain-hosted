@@ -1,5 +1,5 @@
 ---
-private_worker: workerPipelineprivate
+private_worker: ${PRIVATE_WORKER}
 stages:
 - name: BUILD
   inputs:
