@@ -50,8 +50,8 @@ services:
           API_KEY: '{{form.pipeline.parameters.api-key}}'
         execute: true 
       services: 
-       
-        name: '{{services.sample-private-worker.parameters.private_worker_name}}'
+        - sample-private-worker    
+      name: '{{services.sample-private-worker.parameters.private_worker_name}}'
       configuration:
         env:
           PRIVATE_WORKER: sample-private-worker
