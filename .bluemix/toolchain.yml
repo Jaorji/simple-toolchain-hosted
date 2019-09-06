@@ -56,8 +56,7 @@ services:
   sample-private-worker:
     service_id: private_worker
     parameters:
-      private_worker_name: workerPipelineprivate
-      
+      private_worker_name: workerPipelineprivate      
 form:
   pipeline:
     parameters:
