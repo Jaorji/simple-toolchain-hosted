@@ -44,7 +44,7 @@ services:
           $text: pipeline.yml
         env:
           SAMPLE_REPO: sample-repo
-          PRIVATE_WORKER: sample-private-worker
+          PRIVATE_WORKER: '{{form.private_worker.parameters.name}}'
           CF_APP_NAME: '{{form.pipeline.parameters.prod-app-name}}'
           PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
@@ -55,8 +55,6 @@ services:
     service_id: orion
   sample-private-worker:
     service_id: private_worker
-    parameters:
-      private_worker_name: workerPipelineprivate      
 form:
   pipeline:
     parameters:
