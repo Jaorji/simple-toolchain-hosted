@@ -1,5 +1,4 @@
 ---
-private_worker: ${PRIVATE_WORKER}
 stages:
 - name: BUILD
   worker: ${PRIVATE_WORKER}
