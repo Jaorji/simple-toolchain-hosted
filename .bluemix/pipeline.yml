@@ -1,8 +1,8 @@
 ---
 private_worker: ${PRIVATE_WORKER}
 stages:
-- worker: ${PRIVATE_WORKER}
 - name: BUILD
+  worker: ${PRIVATE_WORKER}
   inputs:
   - type: git
     branch: master
