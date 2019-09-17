@@ -33,6 +33,7 @@ services:
       enable_traceability: false
   sample-build:
     service_id: pipeline
+    type: tekton
     parameters:
       services:
         - sample-repo
