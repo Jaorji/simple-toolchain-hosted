@@ -33,13 +33,13 @@ services:
       enable_traceability: false
   sample-build:
     service_id: pipeline
-    type: tekton
     parameters:
       services:
         - sample-repo
         - sample-private-worker
       name: '{{services.sample-repo.parameters.repo_name}}'
       ui-pipeline: true
+      type: tekton
       configuration:
         content:
           $text: pipeline.yml
