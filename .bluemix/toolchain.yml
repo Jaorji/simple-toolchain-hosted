@@ -50,7 +50,6 @@ services:
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'
-          SOME_BOOL_PROP: '{{form.pipeline.parameters.some-bool-prop}}'
         execute: true 
   webide:
     service_id: orion
