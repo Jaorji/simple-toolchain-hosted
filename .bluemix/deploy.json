@@ -81,7 +81,7 @@
 	"some-bool-prop": {
             "description": "Some boolean property description",
             "type": "boolean"
-        }
+        },
 
         "prod-app-name": {
             "description": {
