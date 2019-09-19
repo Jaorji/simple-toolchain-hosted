@@ -10,6 +10,10 @@ stages:
   triggers:
   - type: git
     events: push pull_request pull_request_closed 
+  properties:
+  - name: SOME_BOOL_PROP
+    value: ${SOME_BOOL_PROP}
+    type: text
   jobs:
   - name: Build
     type: builder
