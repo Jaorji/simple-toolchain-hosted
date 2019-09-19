@@ -78,6 +78,11 @@
 		"params":{"apiKey":"self-api-key"}
 	    }
         },
+	"some-bool-prop": {
+            "description": "Some boolean property description",
+            "type": "boolean"
+        }
+
         "prod-app-name": {
             "description": {
                 "$ref": "#/messages/deploy.appDescription"
@@ -113,6 +118,13 @@
             "type": "validator",
             "url": "/devops/setup/bm-helper/helper.html"
         },
+	    {
+            "type": "boolean",
+            "key": "some-bool-prop",
+            "readonly": false,
+            "title": "Some boolean property"
+        },
+
 	{
 	    "type": "table",
             "columnCount": 4,
