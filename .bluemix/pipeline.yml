@@ -1,4 +1,5 @@
 ---
+private_worker: tekton
 stages:
 - name: BUILD
   worker: tekton
