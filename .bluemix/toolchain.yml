@@ -38,6 +38,7 @@ services:
         - sample-repo
         - sample-private-worker
       name: '{{services.sample-repo.parameters.repo_name}}'
+      type: tekton
       ui-pipeline: true
       configuration:
         content:
