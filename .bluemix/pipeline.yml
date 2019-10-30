@@ -1,8 +1,8 @@
 ---
-private_worker: tekton
+private_worker: ${PRIVATE_WORKER}
 stages:
 - name: BUILD
-  worker: tekton
+  worker: ${PRIVATE_WORKER}
   inputs:
   - type: git
     branch: master
